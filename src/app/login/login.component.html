@@ -1,0 +1,156 @@
+<div class="hero-wrap" style="background-image: url('assets/images/login.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-start align-items-center">
+            <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
+
+            </div>
+            <div class="col-lg-2 col"></div>
+
+            <!--Login Form-->
+            <div *ngIf="show=='login'"  class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                <form #frm="ngForm" (submit)="loginCall(frm.value)" class="request-form ftco-animate">
+                    <h2 style="text-align: center;">Login</h2>
+                    <div class="form-group">
+                        <label for="" class="label">Email</label>
+                        <input type="email" name="email" [ngModel] style="width: 300px; font-weight: 500px;" class="form-control" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="label">Password</label>
+                        <input type="password" name="password" [ngModel] style="width: 300px; font-weight: 500px;" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary py-3 px-4">
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <b class="text-danger"  #b1></b>
+                    </div>
+                    <div class="col-xl-6 col-lg-6" *ngIf="isalert">
+                        <b class="text-danger" ></b>
+                    </div>
+                    <div class="form-group d-flex justify-content-between">
+                        <a href="#" (click)="changeModule('forgot')" class="btn btn-link text-secondary">Forgot Password?</a><br><br>
+                        <a href="#" (click)="changeModule('register')" class="btn btn-link text-secondary">Register</a>
+                    </div>
+                </form>
+            </div>
+
+            <!--RegisterCustomer  Form-->
+            <div *ngIf="show === 'register'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                <form #frm='ngForm'  (submit)="setRegCus(frm.value)" class="request-form ftco-animate">
+                    <h2 style="text-align: center;">Customer Registration</h2>
+                    <div class="form-group">
+                        <label for="customerName" class="label" style="width: 300px;">Name</label>
+                        <input type="text" name="customerName" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="label">Mobile</label>
+                        <input type="text"  name="mobile" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Your Mobile Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="label">Email</label>
+                        <input type="email"  name="email" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="label">Password</label>
+                        <input type="password"  name="password" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-primary py-3 px-4">
+                    </div>
+                    
+                    <div class="form-group d-flex justify-content-between">
+                        <a href="#" (click)="changeModule('serviceprovider')"
+                            class="btn btn-link text-secondary">Register As Service Provider</a>
+                    </div>
+                </form>
+            </div>
+
+            
+                <!--Registration Service Provider Form-->
+            <div *ngIf="show === 'serviceprovider'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                <form  #frm='ngForm'  (submit)="setRegSerPro(frm.value,$event)" class="request-form ftco-animate">
+                    <h2 style="text-align: center;">Service Provider Registration</h2>
+                    <div class="form-group">
+                        <label for="serviceproviderName" class="label">Name</label>
+                        <input type="text" name="serviceProviderName" [ngModel] style="width: 300px;" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="label">Mobile</label>
+                        <input type="text" name="serviceProviderMobile" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Your Mobile Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="Address" class="label">Address</label>
+                        <input type="text" name="serviceProviderAddress" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Your Address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="label">Email</label>
+                        <input type="email" name="email" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="label">Password</label>
+                        <input type="password" name="password" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="registrationType" class="label">Registration Type</label>
+                        <select name="serviceProviderType" [ngModel] class="form-control" id="registrationType" style="width: 300px; font-weight: 500px;" required>
+                            <option value=" ">Select</option>
+                            <option value="individual">Individual</option>
+                            <option value="company">Company</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-primary py-3 px-4">
+                    </div>
+                 
+                </form>
+            </div>
+
+                <!--Forgot Password Form-->
+                <div *ngIf="show === 'forgot'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                    <form #frm="ngForm"  class="request-form ftco-animate">
+                        <h2 style="text-align: center;">Forgot Password</h2>
+                        <div class="form-group">
+                            <label for="email" class="label">Email</label>
+                            <input type="email" name="email" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group" *ngIf="otpStatus === false">
+                            <input type="button" value="Send Email" (click)="changeOtpStatus(frm.value)" class="btn btn-primary py-3 px-4">
+                        </div><!--
+                        <div class="col-xl-6 col-lg-6" *ngIf="ismail">
+                            <b class="text-danger" >{{checkMail}}</b>
+                        </div>-->
+
+                        <div class="form-group" *ngIf="otpStatus === true">
+                            <label for="otp" class="label">OTP</label>
+                            <input type="text" class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Enter OTP">
+                        </div>
+
+                        <div class="form-group" *ngIf="otpStatus === true">
+                            <input type="submit" value="Verify OTP" (click)="changeModule('confirmPass')" class="btn btn-primary py-3 px-4">
+                        </div>
+                    </form>
+                </div>
+
+                 <!--Confirm Pass Form-->
+                 <div *ngIf="show === 'confirmPass'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                    <form action="#" class="request-form ftco-animate">
+                        <h2 style="text-align: center;">Change Password</h2>
+                        <div class="form-group">
+                        <label for="customerName" class="label">New Password</label>
+                        <input type="text" style="width: 300px;" class="form-control" placeholder="New Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile" class="label">Confirm Password</label>
+                        <input type="text" class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Confirm Password">
+                    </div>
+                    
+                    <div class="form-group" >
+                        <input type="submit" value="Reset"  class="btn btn-primary py-3 px-4">
+                    </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
