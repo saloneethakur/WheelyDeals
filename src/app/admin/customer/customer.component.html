@@ -1,0 +1,62 @@
+<!--<div class="hero-wrap" style="background-image: url('assets/images/white3.jpg');" data-stellar-background-ratio="0.5">-->
+   
+<div  class="hero-wrap" style="background-image: url('assets/images/back2.jpeg'); height: 100px;" data-stellar-background-ratio="0.5">
+    <section class="ftco-section"></section>
+    </div>
+    <section class="ftco-section">
+    <div class="container">
+        <div class="col-xl-4">
+            <h1>Customer Details</h1>
+            <hr style="background-color: chocolate; text-decoration-thickness: 2px; height: 1px;">
+        </div>
+          <table class="table table-hover" >
+              <thead>
+                  <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Registration Date</th>
+                    <th>Active Status</th>
+                    <th>Block Status</th>
+                    <th>Operation</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let object of obj,let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{object.customerName}}</td>
+                    <td>{{object.mobile}}</td>
+                    <td>{{object.email}}</td>
+                    <td>{{object.regDate}}</td>
+                    <td>
+                    <div *ngIf="object.activeStatus==true">
+                        Active
+                    </div>
+                    <div *ngIf="object.activeStatus==false">
+                     InActive
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="object.isblock==true">
+                        Blocked
+                    </div>
+                    <div *ngIf="object.isblock==false">
+                        Unblock
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="object.isblock==true">
+                        <button class="btn btn-success" (click)="blockStatus(object.userId)">UnBlock</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" [routerLink]="['/customers',object.userId]">View</button>
+                    </div>
+                    <div *ngIf="object.isblock==false">
+                        <button class="btn btn-danger" (click)="blockStatus(object.userId)">Block</button>&nbsp;&nbsp;
+                            <button class="btn btn-info" [routerLink]="['/customers',object.userId]" >View</button>
+                    </div>
+                </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+    </section>

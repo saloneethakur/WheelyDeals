@@ -39,6 +39,11 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
+  public otp:any={
+    email:'',
+    otp:''
+  }
+
   public loginInfo: any = {
     status: false,
     token: '',
@@ -74,29 +79,62 @@ export class LoginComponent implements OnInit {
     console.log(data.email);
     if(data.email != null)
       {
-       this.ob = this.userService.checkMail(data.email);
+       this.ob = this.userService.checkMail(data);
        this.ob.subscribe((res:any)=>{
         
         this.ismail = res.status;
         this.checkMail = res.message;
         console.log(this.checkMail)
         console.log(this.ismail)
+        if(this.ismail)
+          {
+            this.otpStatus=true;
+          }
+          else{
+               this.otpStatus =false;
+          }
       });
-       if(this.ismail)
-        {
-          this.otpStatus=true;
-        }
-        else{
-             this.otpStatus =false;
-        }
       }
+  }
 
+  public otpVerify(data:any)
+  {
+    
+      this.userService.forgotemail = data.email;
+      console.log(this.userService.forgotemail);
+      this.ob =this.userService.verifyOtp(data);
+
+      this.ob.subscribe((data:any)=>{ 
+        if(data.status)
+          {
+            this.changeModule('confirmPass');
+            console.log(data.status)
+            console.log(data.message)
+          }
+      })
+  }
+
+  public setPass(data:any)
+  {
+      
+      data.email = this.userService.forgotemail;
+      console.log(data);
+     this.ob= this.userService.setPass(data);
+
+     this.ob.subscribe((data:any)=>{
+      if(data.status)
+        {
+          this.changeModule('login');
+        }
+     })
   }
 
   changeModule(change: String): void {
     this.show = change;
     console.log(this.show);
   }
+
+
 
   public setRegCus(data: any): void {
 

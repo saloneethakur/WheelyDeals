@@ -1,0 +1,84 @@
+<div  class="hero-wrap" style="background-image: url('assets/images/back2.jpeg'); height: 450px;" data-stellar-background-ratio="0.5">
+    <section class="ftco-section">
+        <div class="container">
+            <h2>Vehicle Master</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="car-wrap ftco-animate">
+                        <div class="img d-flex align-items-end" style="background-image: url('assets/images/car-1.jpg');"></div>   
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="car-wrap ftco-animate"></div>
+                </div>
+             
+                <div class="col-md-7">
+                    <div class="car-wrap ftco-animate">
+                        <div class="form-group">
+                           <br> <label class="label">Model : {{masterVehicle.vehicleModel}}</label><br>
+                            <label class="label">Type :  {{masterVehicle.vehicleType}}</label><br>
+                            <div *ngIf="masterVehicle.vehicleType == 'Rental'">
+                                <label class="label">Seats : {{masterVehicle.seats}}</label>
+                            </div>
+                            <div *ngIf="masterVehicle.vehicleType == 'Transport'">
+                                <label class="label">Capacity : {{masterVehicle.vehicleCapacity}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div>
+            <div class="col-xl-4">
+                <h2>{{dataStatus ? 'Update Vehicle Charges' : 'Add Vehicle Charges'}}</h2>
+                <hr style="background-color: chocolate; text-decoration-thickness: 2px; height: 1px;">
+            </div>
+            <form #frm="ngForm" (submit)="addUpdateCharges(frm.value,$event,vehicleCharges.chargesId)">
+                <div style="background-color: white; height: 300px;" class="container">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="" class="label">Min/Day Km</label>
+                            <input type="number" [(ngModel)]="vehicleCharges.minPerDayKm" class="form-control" name="minPerDayKm" required>
+                        </div>
+                        <input type="hidden" [ngModel] name="vehicleMasterId" value="">
+                        <div class="col-md-6">
+                            <label for="" class="label">Petrol Rate/Km</label>
+                            <input [ngModel] type="number" [(ngModel)]="vehicleCharges.petrolRatePerKm" class="form-control" name="petrolRatePerKm" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="label">Diesel Rate/Km</label>
+                            <input [ngModel] type="number" [(ngModel)]="vehicleCharges.dieselRatePerKm" class="form-control" name="dieselRatePerKm" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="label">CNG Rate/Km</label>
+                            <input [ngModel] type="number" [(ngModel)]="vehicleCharges.cngRatePerKm" class="form-control" name="cngRatePerKm" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="label">EV Rate/Km</label>
+                            <input [ngModel] type="number" [(ngModel)]="vehicleCharges.evRatePerKm" class="form-control" name="evRatePerKm" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="" class="label">AC Rate/Km</label>
+                            <input [ngModel] type="number" [(ngModel)]="vehicleCharges.acRatePerKm" class="form-control" name="acRatePerKm" required>
+                        </div>
+                        <div class="col-md-6" *ngIf="dataStatus">
+                            <input type="submit" style="margin-top: 35px;" value="Update Charges" class="btn btn-primary py-3 px-4">
+                        </div>
+                        <div class="col-md-6" *ngIf="dataStatus == false">
+                            <input type="submit" style="margin-top: 35px;" value="Add Charges" class="btn btn-primary py-3 px-4">
+                        </div>
+                    </div> 
+                </div>
+            </form>
+        </div>
+        <p>{{msg}}</p>
+    </div>
+</section>
+        
+    
+    

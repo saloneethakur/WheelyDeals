@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
-import { Router } from '@angular/router';
+
 import { UserServiceService } from '../user-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit
   }
   public role:any=''
   public isLogin:any=false;
-  public constructor(public userService:UserServiceService)
+  public constructor(public userService:UserServiceService,public router:Router)
   {
     console.log(userService.info.isLogin)
     console.log(userService.info.role)
@@ -25,4 +26,16 @@ export class HeaderComponent implements OnInit
     this.isLogin=userService.info.isLogin;
   }
 
+  public logout():any
+  { 
+      this.userService.info.isLogin=false;
+      this.userService.info.token=undefined;
+      this.userService.info.role=" ";
+
+      this.router.navigateByUrl('/login')
+  }
+
+  isActive(route: string): boolean {
+    return this.router.url === route;
+  }
 }

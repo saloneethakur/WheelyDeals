@@ -1,4 +1,3 @@
-<p>add-vehicle-master works!</p>
 <div class="hero-wrap" style="background-image: url('assets/images/adminHome.jpg');" data-stellar-background-ratio="0.5">
 
     <div class="overlay"></div>
@@ -18,19 +17,18 @@
                           <div class="form-group">
                             <label for="vehicleType" class="label" >vehicle Type</label>
                             <select name="vehicleType" [ngModel] class="form-control" id="registrationType" placeholder=" Vehicle Model " style="width: 300px; font-weight: 500px;" required (change)="onVehicleTypeChange($event)">
-                                <option value=" ">Select</option>
                                 <option value="rental">Rental</option>
                                 <option value="transport">Transport</option>
                             </select>
                         </div>
                           <div class="d-flex">
-                              <div class="form-group mr-2">
-                      <label for="seats" class="label">seats</label>
-                      <input type="number" name="seats" [ngModel] class="form-control" id="seats" placeholder="seats" min="4">
+                              <div class="form-group mr-2" *ngIf="showseat">
+                      <label for="seats" class="label" >seats</label>
+                      <input type="number" name="seats" [ngModel] class="form-control" id="seats" value='0' placeholder="seats" min="4">
                     </div>
                     <div class="form-group ml-2" *ngIf="showVehicleCapacity" >
                       <label for="vehicleCapacity" class="label">vehicle Capacity</label>
-                      <input type="text" name="seats" [ngModel]  class="form-control" id="book_off_date" placeholder="vehicle Capacity">
+                      <input type="text" name="vehicleCapacity" [ngModel]  class="form-control"  placeholder="in tons">
                     </div>
                 </div>
                 <div class="form-group">

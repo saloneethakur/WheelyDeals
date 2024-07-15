@@ -18,7 +18,9 @@ export class AddVehicleMasterComponent {
     };
     public vehicleImage: File | null = null; 
     public showVehicleCapacity = false;
-  ob:any;
+    public showseat = true;
+    
+    ob:any;
     constructor(public userSevice:UserServiceService, public router: Router)
     {
   
@@ -31,7 +33,10 @@ export class AddVehicleMasterComponent {
     const formData = new FormData();
     formData.append('vehicleModel', data.vehicleModel);
     formData.append('vehicleType', data.vehicleType);
-    formData.append('seats', data.seats);
+    if(data.seats == 0){
+        formData.append('seats','0');}
+    else{
+        formData.append('seats',data.seats);}
     formData.append('vehicleCapacity', data.vehicleCapacity);
     if (this.vehicleImage) {
       formData.append('file', this.vehicleImage);
@@ -44,10 +49,10 @@ export class AddVehicleMasterComponent {
         if (responseData.status) {
   
           this.response = responseData;
-          console.log(this.response);
+          console.log(this.response.message);
           alert("Vehicle Saved Succesfully")
-         
-          this.router.navigateByUrl('/admin');
+         event.target.reset();
+          this.router.navigateByUrl('/MasterVehicle');
         } else {
           console.log(this.response.message);
         }
@@ -55,8 +60,6 @@ export class AddVehicleMasterComponent {
     } else {
       console.log("Observable is null")
     }
-  
-    
    }
   
    onFileChange(event: any) {
@@ -66,7 +69,9 @@ export class AddVehicleMasterComponent {
   }
   
   onVehicleTypeChange(event: any) {
-    this.showVehicleCapacity = event.target.value === 'transport';
+    this.showVehicleCapacity = event.target.value == 'transport';
+    this.showseat = event.target.value == 'rental';
+    
   }
     
   

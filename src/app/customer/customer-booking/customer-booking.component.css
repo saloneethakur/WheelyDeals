@@ -1,0 +1,40 @@
+table {
+	font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+.tab
+{
+    background-color: white;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #f7b71d;
+    background: #f7b71d;
+    font-weight: normal;
+    color: #ffffff;
+}
+.ui-widget-header {
+    border: 1px solid white;
+    background: white;
+    color: #333333;
+    font-weight: bold;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid white;
+}
+.ui-state-default a {
+    color: #f7b71d;
+    text-decoration: none;
+    background: white;
+}
+
+li{
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+}

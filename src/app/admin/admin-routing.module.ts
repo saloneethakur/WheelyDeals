@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 
 
 import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
 import { NgForm } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 
 const routes: Routes = [];
 

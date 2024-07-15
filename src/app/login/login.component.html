@@ -109,41 +109,42 @@
 
                 <!--Forgot Password Form-->
                 <div *ngIf="show === 'forgot'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
-                    <form #frm="ngForm"  class="request-form ftco-animate">
+                    <form #frmpass="ngForm"  class="request-form ftco-animate">
                         <h2 style="text-align: center;">Forgot Password</h2>
                         <div class="form-group">
                             <label for="email" class="label">Email</label>
                             <input type="email" name="email" [ngModel] class="form-control" style="width: 300px; font-weight: 500px;" placeholder="example@gmail.com">
                         </div>
-                        <div class="form-group" *ngIf="otpStatus === false">
-                            <input type="button" value="Send Email" (click)="changeOtpStatus(frm.value)" class="btn btn-primary py-3 px-4">
+                        <div class="form-group" *ngIf="otpStatus == false">
+                            <input type="button" value="Send Email" (click)="changeOtpStatus(frmpass.value)" class="btn btn-primary py-3 px-4">
                         </div><!--
                         <div class="col-xl-6 col-lg-6" *ngIf="ismail">
                             <b class="text-danger" >{{checkMail}}</b>
                         </div>-->
 
-                        <div class="form-group" *ngIf="otpStatus === true">
+                        <div class="form-group" *ngIf="otpStatus == true">
                             <label for="otp" class="label">OTP</label>
-                            <input type="text" class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Enter OTP">
+                            <input type="text" class="form-control" [ngModel] name="otp" style="width: 300px; font-weight: 500px;" placeholder="Enter OTP">
                         </div>
 
                         <div class="form-group" *ngIf="otpStatus === true">
-                            <input type="submit" value="Verify OTP" (click)="changeModule('confirmPass')" class="btn btn-primary py-3 px-4">
+                            <input type="submit" maxlength='6' value="Verify OTP" (click)="otpVerify(frmpass.value)" class="btn btn-primary py-3 px-4">
                         </div>
                     </form>
                 </div>
 
                  <!--Confirm Pass Form-->
-                 <div *ngIf="show === 'confirmPass'" class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
-                    <form action="#" class="request-form ftco-animate">
+                 <div *ngIf="show === 'confirmPass'"  class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+                    <form #frmsetpass="ngForm" (submit)="setPass(frmsetpass.value)" class="request-form ftco-animate">
                         <h2 style="text-align: center;">Change Password</h2>
                         <div class="form-group">
                         <label for="customerName" class="label">New Password</label>
-                        <input type="text" style="width: 300px;" class="form-control" placeholder="New Password">
+                        <input type="hidden"   name="email" [ngModel] style="width: 300px;" class="form-control" placeholder="New Password">
+                        <input type="text" style="width: 300px;" name="newPass" [ngModel] class="form-control" placeholder="New Password">
                     </div>
                     <div class="form-group">
                         <label for="mobile" class="label">Confirm Password</label>
-                        <input type="text" class="form-control" style="width: 300px; font-weight: 500px;" placeholder="Confirm Password">
+                        <input type="text" class="form-control" name="confirmPass" [ngModel] style="width: 300px; font-weight: 500px;" placeholder="Confirm Password">
                     </div>
                     
                     <div class="form-group" >

@@ -1,0 +1,16 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050; /* Bootstrap's modal z-index */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  }
+  
+  .popup-message {
+    color: black;
+  }
+
+  .bi-x-lg.text-danger {
+    font-size: 1.5rem;
+  }

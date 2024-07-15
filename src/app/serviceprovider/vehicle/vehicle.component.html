@@ -1,0 +1,41 @@
+<section class="ftco-section">
+
+    <div class="container">
+        
+        <div id="tabs" class="tab">
+            <ul>
+              <li><a  href="#tabs-1">Master Vehicles</a></li>
+              <li><a href="#tabs-2">View My Vehicles</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div class="container"> 
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let mv of masterVehicle">
+                        <div class="car-wrap ftco-animate">
+                            <div class="img d-flex align-items-end" style="background-image: url('assets/images/car-1.jpg');">
+                            </div>
+                            <div class="text p-4 text-center">
+                                <h2 class="mb-0">{{mv.vehicleModel}}</h2>
+                                <p class="d-flex mb-0 d-block"><a (click)="storeVehicle(mv)" class="btn btn-black btn-outline-black mr-1">Add Vehicle</a> <a (click)="updateCharges(mv)" class="btn btn-black btn-outline-black ml-1">Update Charges</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+                            <ul>
+                                <li *ngFor="let i of getLinks()" (click)="link(i+1)"><a>{{i+1}}</a>  </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-2">
+                <app-sp-all-vehicles></app-sp-all-vehicles>
+            </div>
+          </div>
+    </div>   
+   
+</section>

@@ -3389,7 +3389,7 @@ input[type="button"].btn-block {
   .nav-tabs .nav-item {
     margin-bottom: -1px; }
   .nav-tabs .nav-link {
-    border: 1px solid transparent;
+    border: 1px solid transparent; 
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
     .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
@@ -8216,7 +8216,7 @@ h1, h2, h3, h4, h5,
     bottom: 0;
     content: '';
     opacity: .4;
-    background: #000000;
+    background: #000;
     height: 850px; }
   @media (max-width: 991.98px) {
     .hero-wrap {

@@ -1,0 +1,79 @@
+<div
+  class="hero-wrap"
+  style="height: 10px; background-image: url('/assets/images/back2.jpeg'); "
+  data-stellar-background-ratio="0.5"
+>
+  <section class="ftco-section"></section>
+</div>
+<section class="ftco-section">
+  <div class="container">
+   
+    <div class="profile-row">
+      <br />
+      <div class="profile-item"><b>Name:</b><br />{{ obj.customerName }}</div>
+      <br />
+      <div class="profile-item">
+        <strong>Email:</strong><br />{{ obj.email }}
+      </div>
+      <br />
+      <div class="profile-item">
+        <strong>Mobile:</strong><br />{{ obj.mobile }}
+      </div>
+    </div>
+    <div class="profile-row">
+      <br />
+      <div class="profile-item">
+        <strong>Registration Date:</strong><br />{{ obj.regDate }}
+      </div>
+      <br />
+      <div class="profile-item">
+        <strong>Active Status:</strong><br />
+        <div *ngIf="obj.activeStatus==true"><p>Active</p></div>
+      <div *ngIf="obj.activeStatus==false">
+       InActive
+      </div>
+      </div>
+      <br />
+      <div class="profile-item">
+        <strong>Block Status:</strong><br />
+        <div *ngIf="obj.isblock==true">
+          Blocked
+      </div>
+      <div *ngIf="obj.isblock==false">
+          Unblock
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div id="tabs" class="tab">
+    <ul>
+      <li><a href="#tabs-1">Bookings</a></li>
+      <li><a href="#tabs-2">Pendings</a></li>
+      <li><a href="#tabs-3">Payments</a></li>
+    </ul>
+    <div id="tabs-1">
+      <div class="container">
+        <div class="row">
+          <h1>Bookings</h1>
+        </div>
+      </div>
+    </div>
+      <div id="tabs-2">
+        <div class="container">
+          <div class="row">
+            <h1>Pending Bookings</h1>
+          </div>
+        </div>
+      </div>
+      <div id="tabs-3">
+        <div class="container">
+          <div class="row">
+            <h1>Payments</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
