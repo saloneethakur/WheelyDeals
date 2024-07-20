@@ -12,6 +12,9 @@ import { CustomersComponent } from './customer/customers/customers.component';
 import { MasterVehiclesComponent } from './vehicles/master-vehicles/master-vehicles.component';
 import { SpAddVehicleComponent } from './serviceprovider/sp-add-vehicle/sp-add-vehicle.component';
 import { VehicleComponent } from './serviceprovider/vehicle/vehicle.component';
+import { RequestVehicleComponent } from './customer/request-vehicle/request-vehicle.component';
+import { ViewRequestsComponent } from './customer/view-requests/view-requests.component';
+import { ViewVehiclesComponent } from './admin/view-vehicles/view-vehicles.component';
 
 
 const routes: Routes = [
@@ -29,7 +32,10 @@ const routes: Routes = [
     {path:"booking", component: CustomerBookingComponent},
     {path: "spAddVehicle", component: SpAddVehicleComponent},
     {path: "vehicle", component: VehicleComponent},
-  {path : "MasterVehicle" , component : AddVehicleMasterComponent }
+  {path : "MasterVehicle" , component : AddVehicleMasterComponent },
+  {path : "requestVehicle", component : RequestVehicleComponent},
+  {path : "viewRequests", component : ViewRequestsComponent},
+  {path:"viewVehicles", component: ViewVehiclesComponent}
 ];
 
 

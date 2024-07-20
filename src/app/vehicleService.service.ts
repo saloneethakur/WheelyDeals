@@ -19,7 +19,7 @@ export class VehicleService {
   allMasterVehicle():any 
   {
     const authorize = this.getHeaders();
-    return this.http.get("http://localhost:8080/admin/allVehicles",{headers : authorize});
+    return this.http.get("http://localhost:8080/web/allVehicles",{headers : authorize});
   }
 
 }

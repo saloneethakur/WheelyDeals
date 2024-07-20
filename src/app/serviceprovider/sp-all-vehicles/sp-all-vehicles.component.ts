@@ -18,8 +18,8 @@ export class SpAllVehiclesComponent implements OnInit
   public page:number = 1;
   public skipValue:number = 5;
   public totalRecord:number = 0;
-
-
+  public showPopup: boolean = false;
+  public spvid:number = 0;
 
   ngOnInit(): void {
      this.viewAllVehicles(this.page,this.skipValue);
@@ -45,8 +45,14 @@ export class SpAllVehiclesComponent implements OnInit
    
   }
 
-  public deleteVehicle(spvId:any):void {
-    const response = this.spservice.deleteVehicle(spvId);
+  public showDeletePopup(spvId:any):void
+  {
+    this.showPopup = true;
+    this.spvid = spvId;
+  }
+
+  public deleteVehicle():void {
+    const response = this.spservice.deleteVehicle(this.spvid);
     if(response!=null)
     {
       response.subscribe((res:any)=>{
@@ -75,6 +81,10 @@ export class SpAllVehiclesComponent implements OnInit
   public link(index:number){
     this.page = index;
     this.viewAllVehicles(this.page,this.skipValue)
+  }
+
+  closePopup(): void {
+    this.showPopup = false;
   }
  
 }

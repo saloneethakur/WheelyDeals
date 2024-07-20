@@ -209,7 +209,6 @@ export class LoginComponent implements OnInit {
           if (this.loginInfo.status) {
              
             this.userService.userInfo = this.loginInfo;
-            alert("login successfull")
           }
           else {
               this.b1Element.nativeElement.innerText = 'Login Failed ';

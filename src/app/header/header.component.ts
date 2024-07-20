@@ -19,9 +19,6 @@ export class HeaderComponent implements OnInit
   public isLogin:any=false;
   public constructor(public userService:UserServiceService,public router:Router)
   {
-    console.log(userService.info.isLogin)
-    console.log(userService.info.role)
-    
     this.role=userService.info.role;
     this.isLogin=userService.info.isLogin;
   }

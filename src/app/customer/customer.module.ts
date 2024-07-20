@@ -8,18 +8,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerBookingComponent } from './customer-booking/customer-booking.component';
+import { RequestVehicleComponent } from './request-vehicle/request-vehicle.component';
+import { ViewRequestsComponent } from './view-requests/view-requests.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
 @NgModule({
   declarations: [
         CustomersComponent,
-        CustomerBookingComponent
+        CustomerBookingComponent,
+        RequestVehicleComponent,
+        ViewRequestsComponent
   ],
   imports: [
    BrowserModule,
-   
-    FormsModule,
+   AppRoutingModule,
+    FormsModule
   ]
   
 })

@@ -21,6 +21,9 @@ import { CustomerModule } from './customer/customer.module';
 import { VehiclesModule } from './vehicles/vehicles.module';
 import { ServiceproviderModule } from './serviceprovider/serviceprovider.module';
 import { ServiceProviderRoutingModule } from './serviceprovider/serviceprovider-routing.module';
+import { MasterVehiclesComponent } from './vehicles/master-vehicles/master-vehicles.component';
+import { ViewVehiclesComponent } from './admin/view-vehicles/view-vehicles.component';
+import { EditVehiclesComponent } from './edit-vehicles/edit-vehicles.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,8 @@ import { ServiceProviderRoutingModule } from './serviceprovider/serviceprovider-
     AddVehicleMasterComponent,
     CustomerComponent,
     ServiceProviderComponent,
+    ViewVehiclesComponent,
+    EditVehiclesComponent
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,17 @@
                         <h2 class="mb-0">{{ob.vehicleModel}}</h2>
                         <span>{{ob.vehicleType}}</span>
                         <span *ngIf="ob.seats > 0">Seats : {{ob.seats}}</span>
-                        <span *ngIf="ob.vehicleCapacity != 'undefined'">Capacity : {{ob.vehicleCapacity}}</span>
-                        <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">View</a> <a href="#" class="btn btn-black btn-outline-black ml-1">Edit</a></p>
+                        <span *ngIf="ob.vehicleCapacity != 0">Capacity : {{ob.vehicleCapacity}}</span>
+                        <div style="padding-left: 60px;" *ngIf="userService.info.role === 'ROLE_ADMIN'">
+                            <p class="d-flex mb-0 d-block"><a (click)="viewVehicles(ob)" class="btn btn-black btn-outline-black mr-1">View</a></p>
+                        </div>
+                        <div *ngIf="userService.info.isLogin==false">
+                            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">View</a> <a routerLink="/login" class="btn btn-black btn-outline-black ml-1">Book</a></p>
+                        </div>
+                        <div *ngIf="userService.info.role === 'ROLE_CUSTOMER'">
+                            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">View</a> <a (click)="requestVehicle(ob)" class="btn btn-black btn-outline-black ml-1">Book</a></p>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

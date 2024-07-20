@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MasterVehicleServiceService } from 'src/app/master-vehicle-service.service';
+import { UserServiceService } from 'src/app/user-service.service';
 import { VehicleService } from 'src/app/vehicleService.service';
 
 @Component({
@@ -8,7 +11,7 @@ import { VehicleService } from 'src/app/vehicleService.service';
 })
 export class MasterVehiclesComponent implements OnInit
 {
-  constructor(public vservice:VehicleService){}
+  constructor(public vservice:VehicleService,public userService:UserServiceService,public router:Router, public masterVehicleService:MasterVehicleServiceService){}
 
   public ob:any;
   
@@ -23,6 +26,13 @@ export class MasterVehiclesComponent implements OnInit
     })
   }
 
-  
+  public requestVehicle(obj:any):void
+  {
+    this.masterVehicleService.singleVehicle = obj
+    this.router.navigateByUrl('/requestVehicle')
+  }
 
+  public viewVehicles(obj:any):void {
+    this.router.navigateByUrl('/viewVehicles')
+  }
 }

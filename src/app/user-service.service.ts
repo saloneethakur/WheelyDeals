@@ -66,7 +66,7 @@ public get role(){return this.info.role};
       console.log(this.info);
     if(this.info.role=='ROLE_CUSTOMER')
       {  
-        this.router.navigateByUrl("/booking");
+        this.router.navigateByUrl("/");
       }
       else if(this.info.role=='ROLE_ADMIN')
         {
