@@ -33,11 +33,21 @@ export class AddVehicleMasterComponent {
     const formData = new FormData();
     formData.append('vehicleModel', data.vehicleModel);
     formData.append('vehicleType', data.vehicleType);
-    if(data.seats == 0){
+    
+    console.log(data.seats);
+    console.log(data.vehicleCapacity);
+    
+    if(data.seats == undefined){
         formData.append('seats','0');}
     else{
-        formData.append('seats',data.seats);}
-    formData.append('vehicleCapacity', data.vehicleCapacity);
+        formData.append('seats',data.seats);
+      }
+      if(data.vehicleCapacity == undefined){
+          formData.append('vehicleCapacity','0');}
+      else
+      {
+        formData.append('vehicleCapacity', data.vehicleCapacity);
+      }
     if (this.vehicleImage) {
       formData.append('file', this.vehicleImage);
     }
