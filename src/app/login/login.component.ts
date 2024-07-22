@@ -76,7 +76,6 @@ export class LoginComponent implements OnInit {
   };
 
   changeOtpStatus(data:any): void {
-    console.log(data.email);
     if(data.email != null)
       {
        this.ob = this.userService.checkMail(data);
@@ -84,8 +83,6 @@ export class LoginComponent implements OnInit {
         
         this.ismail = res.status;
         this.checkMail = res.message;
-        console.log(this.checkMail)
-        console.log(this.ismail)
         if(this.ismail)
           {
             this.otpStatus=true;
@@ -101,15 +98,12 @@ export class LoginComponent implements OnInit {
   {
     
       this.userService.forgotemail = data.email;
-      console.log(this.userService.forgotemail);
       this.ob =this.userService.verifyOtp(data);
 
       this.ob.subscribe((data:any)=>{ 
         if(data.status)
           {
             this.changeModule('confirmPass');
-            console.log(data.status)
-            console.log(data.message)
           }
       })
   }
@@ -118,7 +112,6 @@ export class LoginComponent implements OnInit {
   {
       
       data.email = this.userService.forgotemail;
-      console.log(data);
      this.ob= this.userService.setPass(data);
 
      this.ob.subscribe((data:any)=>{
@@ -131,7 +124,6 @@ export class LoginComponent implements OnInit {
 
   changeModule(change: String): void {
     this.show = change;
-    console.log(this.show);
   }
 
 
@@ -139,15 +131,12 @@ export class LoginComponent implements OnInit {
   public setRegCus(data: any): void {
 
     this.regCus = data;
-    console.log(this.regCus);
     this.ob = this.userService.saveCus(this.regCus);
-    console.log(this.ob);
     if (this.ob != null) {
       this.ob.subscribe((responseData: any) => {
         if (responseData.status) {
 
           this.response = responseData;
-          console.log(this.response);
           alert("Customer Saved Succesfully")
           this.show = 'login';
           this.router.navigateByUrl('/login');
@@ -162,15 +151,12 @@ export class LoginComponent implements OnInit {
 
   public setRegSerPro(data: any, event: any): void {
     this.regSerpro = data;
-    console.log(this.regSerpro);
     this.ob = this.userService.saveSer(this.regSerpro);
-    console.log(this.ob);
     if (this.ob != null) {
       this.ob.subscribe((responseData: any) => {
         if (responseData.status) {
 
           this.response = responseData;
-          console.log(this.response);
           alert("Service Provider Saved Succesfully")
           this.show = 'login';
           this.router.navigateByUrl('/login');
@@ -187,25 +173,18 @@ export class LoginComponent implements OnInit {
   public loginCall(data: any): void {
     this.login.email = data.email;
     this.login.password = data.password;
-    console.log(this.login);
-    console.log("login Call");
+    
     if (this.login.email != null && this.login.password != null) {
       this.isalert=false;
       
       this.ob = this.userService.login(this.login);
-      console.log(this.ob);
-      console.log("object recieved??")
+      
       if (this.ob != null) 
         {
-          console.log("object recieved??")
         this.ob.subscribe((data: any) => {
-          console.log("object recieved??")
           this.loginInfo.status = data.status;
           this.loginInfo.token = data.data.token;
           this.loginInfo.role = data.data.role;
-          console.log(this.loginInfo);
-          console.log(data);
-          console.log(this.login);
           if (this.loginInfo.status) {
              
             this.userService.userInfo = this.loginInfo;

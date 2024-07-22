@@ -47,11 +47,11 @@
                        <div class="row">
                          <div class="col-md-4">
                                <label for="" class="label">Pick-up date</label>
-                               <input [ngModel] type="date"  class="form-control" name="registrationNumber" required>
+                               <input [(ngModel)]="tripData.tripStartDate" type="date" class="form-control" name="tripStartDate" required>
                          </div>
                          <div class="col-md-4">
                              <label for="" class="label">Drop-off date</label>
-                             <input type="date"  class="form-control" #rccd required>
+                             <input [(ngModel)]="tripData.tripEndDate" type="date" name="tripEndDate"  class="form-control" #rccd required>
                          </div>
                          <div class="col-md-4">
                             <label for="" class="label">Fuel Type</label>
@@ -68,22 +68,22 @@
                         <div class="row">
                             <div class="col-md-4">
                                   <label for="" class="label">Pick-up Location</label>
-                                  <input [ngModel] type="text"  class="form-control" name="registrationNumber" required>
+                                  <input [(ngModel)]="tripData.pickUpPoint" type="text"  class="form-control" name="pickUpPoint" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="label">Drop-off Location</label>
-                                <input type="text"  class="form-control" #rccd required>
+                                <input type="text" [(ngModel)]="tripData.dropPoint" name="dropPoint"  class="form-control" #rccd required>
                             </div>
                             <div class="col-md-4">
                                 <label for="" class="label">AC</label>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label class="label">Yes</label>&nbsp;
-                                        <input type="radio" name="ac"  value="Yes">
+                                        <input [ngModel] type="radio" name="ac"  value="Yes">
                                     </div>
                                     <div class="col-md-4">
                                         <label class="label">No</label>&nbsp;
-                                        <input type="radio" name="ac" value="No">
+                                        <input [ngModel] type="radio" name="ac" value="No">
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MasterVehicleServiceService } from 'src/app/master-vehicle-service.service';
+import { TripService } from 'src/app/trip.service';
 import { UserServiceService } from 'src/app/user-service.service';
 import { VehicleService } from 'src/app/vehicleService.service';
 
@@ -11,7 +12,7 @@ import { VehicleService } from 'src/app/vehicleService.service';
 })
 export class MasterVehiclesComponent implements OnInit
 {
-  constructor(public vservice:VehicleService,public userService:UserServiceService,public router:Router, public masterVehicleService:MasterVehicleServiceService){}
+  constructor(public vservice:VehicleService,public userService:UserServiceService,public router:Router, public masterVehicleService:MasterVehicleServiceService, public tripService:TripService){}
 
   public ob:any;
   public spVehicles:any[] =[];
@@ -21,8 +22,6 @@ export class MasterVehiclesComponent implements OnInit
     this.ob = this.vservice.allMasterVehicle();
     this.ob.subscribe((res:any)=>{
       this.vservice.vehOb = res.data;
-      console.log(this.vservice.vehOb);
-
     })
   }
 
@@ -35,5 +34,10 @@ export class MasterVehiclesComponent implements OnInit
   public storeVehicle(obj:any):void {
     this.masterVehicleService.singleVehicle = obj;
     this.router.navigateByUrl('/viewVehicles')
+  }
+
+  public ngOnDestroy():void{
+    this.tripService.tempTripObj = this.tripService.tripObject
+    this.tripService.tripObject = undefined;
   }
 }

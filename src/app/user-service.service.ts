@@ -46,7 +46,6 @@ public get role(){return this.info.role};
   public masterVehicle(MasterVehicle:any):any
   {
     const authorize = this.getHeaders();
-    console.log(authorize);
        return this.http.post('http://localhost:8080/admin/addMasterVehicle',MasterVehicle,{ headers: authorize })
   }
 
@@ -60,10 +59,8 @@ public get role(){return this.info.role};
   {
     
       this.info.isLogin=ob.status;
-      console.log(this.isLogin);
       this.info.token=ob.token;
       this.info.role = ob.role;
-      console.log(this.info);
     if(this.info.role=='ROLE_CUSTOMER')
       {  
         this.router.navigateByUrl("/");
