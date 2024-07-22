@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceproviderService } from '../serviceprovider.service';
 import { Router } from '@angular/router';
+import { VehicleService } from 'src/app/vehicleService.service';
 
 @Component({
   selector: 'app-sp-all-vehicles',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SpAllVehiclesComponent implements OnInit
 {
-  constructor(public spservice:ServiceproviderService, public router:Router)
+  constructor(public spservice:ServiceproviderService, public router:Router, public vehicleService:VehicleService)
   {}
 
   public spVehicles:any[] = this.spservice.spAllVehicles;
@@ -85,6 +86,11 @@ export class SpAllVehiclesComponent implements OnInit
 
   closePopup(): void {
     this.showPopup = false;
+  }
+  
+  public viewVehicle(spv:any):void{
+      this.vehicleService.viewSpVehicle = spv;
+      this.router.navigateByUrl('/viewSpVehicle')
   }
  
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceproviderService } from 'src/app/serviceprovider/serviceprovider.service';
 import { UserServiceService } from 'src/app/user-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ServiceProviderComponent {
   public obj:any[]=[];
   public response:any;
 
-  public constructor(public userService:UserServiceService,public router:Router){}
+  public constructor(public userService:UserServiceService,public router:Router, public spService:ServiceproviderService){}
 
   public ngOnInit(): void 
   {
@@ -47,6 +48,11 @@ export class ServiceProviderComponent {
   {
     this.router.navigateByUrl('/adminService')
   }
+  }
+
+  public viewSpProfile(obj:any){
+      this.spService.serviceProviderProfile = obj;
+      this.router.navigateByUrl("/spProfile");
   }
 
 }

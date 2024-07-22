@@ -14,7 +14,7 @@ export class MasterVehiclesComponent implements OnInit
   constructor(public vservice:VehicleService,public userService:UserServiceService,public router:Router, public masterVehicleService:MasterVehicleServiceService){}
 
   public ob:any;
-  
+  public spVehicles:any[] =[];
 
   ngOnInit(): void 
   {
@@ -32,7 +32,8 @@ export class MasterVehiclesComponent implements OnInit
     this.router.navigateByUrl('/requestVehicle')
   }
 
-  public viewVehicles(obj:any):void {
+  public storeVehicle(obj:any):void {
+    this.masterVehicleService.singleVehicle = obj;
     this.router.navigateByUrl('/viewVehicles')
   }
 }

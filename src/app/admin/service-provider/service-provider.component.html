@@ -15,11 +15,8 @@
                         <th>Name</th>
                         <th>Mobile</th>
                         <th>Email</th>
-                        <th>Address</th>
                         <th>Registration Date</th>
                         <th>Type</th>
-                        <th>Rating</th>
-                        <th>Active Status</th>
                         <th>Block Status</th>
                         <th>Operation</th>
                 </tr>
@@ -30,18 +27,8 @@
                     <td>{{object.serviceProviderName}}</td>
                     <td>{{object.serviceProviderMobile}}</td>
                     <td>{{object.email}}</td>
-                    <td>{{object.serviceProviderAddress}}</td>
                     <td>{{object.regDate}}</td>
                     <td>{{object.serviceProviderType}}</td>
-                    <td>{{object.rating}}</td>
-                    <td>
-                    <div *ngIf="object.activeStatus==true">
-                        Active
-                    </div>
-                    <div *ngIf="object.activeStatus==false">
-                     InActive
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="object.isblock==true">
                         Blocked
@@ -52,12 +39,12 @@
                 </td>
                 <td>
                     <div *ngIf="object.isblock==true">
-                        <button class="btn btn-success" (click)="blockStatus(object.userId)">UnBlock</button><br>
-                        <button class="btn btn-info" [routerLink]="['/customers',object.userId]">View</button>
+                        <button class="btn btn-success" (click)="blockStatus(object.userId)">UnBlock</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" (click)="viewSpProfile(object)">View</button>
                     </div>
                     <div *ngIf="object.isblock==false">
-                        <button class="btn btn-danger" (click)="blockStatus(object.userId)">Block</button><br>
-                        <button class="btn btn-info" [routerLink]="['/customers',object.userId]">View</button>
+                        <button class="btn btn-danger" (click)="blockStatus(object.userId)">Block</button>&nbsp;&nbsp;
+                        <button class="btn btn-info" (click)="viewSpProfile(object)">View</button>
 
                     </div>
                 </td>

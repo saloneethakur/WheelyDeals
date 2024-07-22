@@ -10,7 +10,13 @@ import { UserServiceService } from 'src/app/user-service.service';
 })
 export class ServiceproviderService {
 
+  private spProfile:any;
+
   private allSpVehicles:any[]=[];
+
+  public get serviceProviderProfile(){return this.spProfile}
+
+  public set serviceProviderProfile(spProfile:any){this.spProfile = spProfile}
 
   public get spAllVehicles(){return this.allSpVehicles}
 

@@ -15,6 +15,8 @@ import { VehicleComponent } from './serviceprovider/vehicle/vehicle.component';
 import { RequestVehicleComponent } from './customer/request-vehicle/request-vehicle.component';
 import { ViewRequestsComponent } from './customer/view-requests/view-requests.component';
 import { ViewVehiclesComponent } from './admin/view-vehicles/view-vehicles.component';
+import { ServiceProviderProfileComponent } from './serviceprovider/service-provider-profile/service-provider-profile.component';
+import { ViewSpVehicleComponent } from './serviceprovider/view-sp-vehicle/view-sp-vehicle.component';
 
 
 const routes: Routes = [
@@ -35,7 +37,9 @@ const routes: Routes = [
   {path : "MasterVehicle" , component : AddVehicleMasterComponent },
   {path : "requestVehicle", component : RequestVehicleComponent},
   {path : "viewRequests", component : ViewRequestsComponent},
-  {path:"viewVehicles", component: ViewVehiclesComponent}
+  {path:"viewVehicles", component: ViewVehiclesComponent},
+  {path:"spProfile", component: ServiceProviderProfileComponent},
+  {path:"viewSpVehicle", component: ViewSpVehicleComponent}
 ];
 
 

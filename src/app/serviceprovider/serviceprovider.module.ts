@@ -9,6 +9,8 @@ import { SpComponent } from './sp/sp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VehicleChargesComponent } from './vehicle-charges/vehicle-charges.component';
 import { SpAllVehiclesComponent } from './sp-all-vehicles/sp-all-vehicles.component';
+import { ServiceProviderProfileComponent } from './service-provider-profile/service-provider-profile.component';
+import { ViewSpVehicleComponent } from './view-sp-vehicle/view-sp-vehicle.component';
 
 
 
@@ -19,7 +21,9 @@ import { SpAllVehiclesComponent } from './sp-all-vehicles/sp-all-vehicles.compon
     SpAddVehicleComponent,
     SpComponent,
     VehicleChargesComponent,
-    SpAllVehiclesComponent
+    SpAllVehiclesComponent,
+    ServiceProviderProfileComponent,
+    ViewSpVehicleComponent
   ],
   imports: [
     CommonModule,

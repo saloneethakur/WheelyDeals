@@ -1,0 +1,74 @@
+.hero-wrap {
+    background-image: url('/assets/images/white3.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 80px 0;
+    text-align: center;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 20px;
+}
+.profile-row div {
+    flex: 1;
+    margin: 0 10px;
+}
+.profile-row div:first-child {
+    margin-left: 0;
+}
+.profile-row div:last-child {
+    margin-right: 0;
+}
+@media (max-width: 600px) {
+    .profile-row {
+        flex-direction: column;
+    }
+    .profile-row div {
+        margin: 10px 0;
+    }
+}
+.profile-item {
+    flex: 1;
+    min-width: 200px; /* Adjust as needed */
+    margin: 10px;
+  }
+table {
+	font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+.tab
+{
+    background-color: white;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #f7b71d;
+    background: #f7b71d;
+    font-weight: normal;
+    color: #ffffff;
+}
+.ui-widget-header {
+    border: 1px solid white;
+    background: white;
+    color: #333333;
+    font-weight: bold;
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid white;
+}
+.ui-state-default a {
+    color: #f7b71d;
+    text-decoration: none;
+    background: white;
+}
