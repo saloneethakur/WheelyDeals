@@ -36,6 +36,11 @@ export class MasterVehiclesComponent implements OnInit
     this.router.navigateByUrl('/viewVehicles')
   }
 
+  public viewBooking()
+  {
+    this.router.navigateByUrl("/viewVehicleBooking")
+  }
+
   public ngOnDestroy():void{
     this.tripService.tempTripObj = this.tripService.tripObject
     this.tripService.tripObject = undefined;

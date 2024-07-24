@@ -19,7 +19,7 @@
                             <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">View</a> <a routerLink="/login" class="btn btn-black btn-outline-black ml-1">Book</a></p>
                         </div>
                         <div *ngIf="userService.info.role === 'ROLE_CUSTOMER'">
-                            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-black btn-outline-black mr-1">View</a> <a (click)="requestVehicle(ob)" class="btn btn-black btn-outline-black ml-1">Book</a></p>
+                            <p class="d-flex mb-0 d-block"><a (click)="viewBooking()" class="btn btn-black btn-outline-black mr-1">View</a> <a (click)="requestVehicle(ob)" class="btn btn-black btn-outline-black ml-1">Book</a></p>
                         </div>
                         
                     </div>

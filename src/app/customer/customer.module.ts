@@ -11,6 +11,7 @@ import { CustomerBookingComponent } from './customer-booking/customer-booking.co
 import { RequestVehicleComponent } from './request-vehicle/request-vehicle.component';
 import { ViewRequestsComponent } from './view-requests/view-requests.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ViewVehicleBookingComponent } from './view-vehicle-booking/view-vehicle-booking.component';
 
 
 
@@ -19,7 +20,8 @@ import { AppRoutingModule } from '../app-routing.module';
         CustomersComponent,
         CustomerBookingComponent,
         RequestVehicleComponent,
-        ViewRequestsComponent
+        ViewRequestsComponent,
+        ViewVehicleBookingComponent
   ],
   imports: [
    BrowserModule,

@@ -17,6 +17,7 @@ import { ViewRequestsComponent } from './customer/view-requests/view-requests.co
 import { ViewVehiclesComponent } from './admin/view-vehicles/view-vehicles.component';
 import { ServiceProviderProfileComponent } from './serviceprovider/service-provider-profile/service-provider-profile.component';
 import { ViewSpVehicleComponent } from './serviceprovider/view-sp-vehicle/view-sp-vehicle.component';
+import { ViewVehicleBookingComponent } from './customer/view-vehicle-booking/view-vehicle-booking.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
   {path : "viewRequests", component : ViewRequestsComponent},
   {path:"viewVehicles", component: ViewVehiclesComponent},
   {path:"spProfile", component: ServiceProviderProfileComponent},
-  {path:"viewSpVehicle", component: ViewSpVehicleComponent}
+  {path:"viewSpVehicle", component: ViewSpVehicleComponent},
+  {path:"viewVehicleBooking", component: ViewVehicleBookingComponent}
 ];
 
 
