@@ -12,6 +12,8 @@ export class ServiceproviderService {
 
   private spProfile:any;
 
+  public singleRequest:any;
+
   private allSpVehicles:any[]=[];
 
   public get serviceProviderProfile(){return this.spProfile}
@@ -78,5 +80,16 @@ export class ServiceproviderService {
     return this.http.delete(`http://localhost:8080/serviceProvider/deleteVehicle/${spvid}`,{headers:authorize})
   }
 
+  public viewRequests():any
+  {
+    const authorize = this.userService.getHeaders();
+    return this.http.get("http://localhost:8080/serviceProvider/viewRequest",{headers:authorize})
+  }
+
+  public availableVehicles(reqId:any):any
+  {
+    const authorize = this.userService.getHeaders();
+    return this.http.get(`http://localhost:8080/serviceProvider/spVehicles/${reqId}`,{headers:authorize})
+  }
 }
 

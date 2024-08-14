@@ -11,6 +11,9 @@ import { VehicleChargesComponent } from './vehicle-charges/vehicle-charges.compo
 import { SpAllVehiclesComponent } from './sp-all-vehicles/sp-all-vehicles.component';
 import { ServiceProviderProfileComponent } from './service-provider-profile/service-provider-profile.component';
 import { ViewSpVehicleComponent } from './view-sp-vehicle/view-sp-vehicle.component';
+import { SpRequestComponent } from './sp-request/sp-request.component';
+import { SpBookingComponent } from './sp-booking/sp-booking.component';
+import { SpVehicleRequestComponent } from './sp-vehicle-request/sp-vehicle-request.component';
 
 
 
@@ -23,7 +26,10 @@ import { ViewSpVehicleComponent } from './view-sp-vehicle/view-sp-vehicle.compon
     VehicleChargesComponent,
     SpAllVehiclesComponent,
     ServiceProviderProfileComponent,
-    ViewSpVehicleComponent
+    ViewSpVehicleComponent,
+    SpRequestComponent,
+    SpBookingComponent,
+    SpVehicleRequestComponent
   ],
   imports: [
     CommonModule,

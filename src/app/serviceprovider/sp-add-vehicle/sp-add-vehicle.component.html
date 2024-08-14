@@ -5,21 +5,20 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="car-wrap ftco-animate">
-                    <div class="img d-flex align-items-end" style="background-image: url('assets/images/car-1.jpg');">
-                    </div>
-                    
+                    <div class="img d-flex align-items-end" style="background-image: url('assets/images/car-1.jpg');"></div>
+        
                 </div>
             </div>
             <div class="col-md-1">
                 <div class="car-wrap ftco-animate">
-               </div>
+                </div>
             </div>
-         
+        
             <div class="col-md-7">
                 <div class="car-wrap ftco-animate">
                     <div class="form-group">
-                       <br> <label class="label">Model : {{masterVehicle.vehicleModel}}</label><br>
-                        <label class="label">Type :  {{masterVehicle.vehicleType}}</label><br>
+                        <br> <label class="label">Model : {{masterVehicle.vehicleModel}}</label><br>
+                        <label class="label">Type : {{masterVehicle.vehicleType}}</label><br>
                         <div *ngIf="masterVehicle.vehicleType == 'Rental'">
                             <label class="label">Seats : {{masterVehicle.seats}}</label>
                         </div>

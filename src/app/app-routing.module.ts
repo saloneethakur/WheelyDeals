@@ -18,6 +18,9 @@ import { ViewVehiclesComponent } from './admin/view-vehicles/view-vehicles.compo
 import { ServiceProviderProfileComponent } from './serviceprovider/service-provider-profile/service-provider-profile.component';
 import { ViewSpVehicleComponent } from './serviceprovider/view-sp-vehicle/view-sp-vehicle.component';
 import { ViewVehicleBookingComponent } from './customer/view-vehicle-booking/view-vehicle-booking.component';
+import { SpBookingComponent } from './serviceprovider/sp-booking/sp-booking.component';
+import { SpRequestComponent } from './serviceprovider/sp-request/sp-request.component';
+import { SpVehicleRequestComponent } from './serviceprovider/sp-vehicle-request/sp-vehicle-request.component';
 
 
 const routes: Routes = [
@@ -41,7 +44,10 @@ const routes: Routes = [
   {path:"viewVehicles", component: ViewVehiclesComponent},
   {path:"spProfile", component: ServiceProviderProfileComponent},
   {path:"viewSpVehicle", component: ViewSpVehicleComponent},
-  {path:"viewVehicleBooking", component: ViewVehicleBookingComponent}
+  {path:"viewVehicleBooking", component: ViewVehicleBookingComponent},
+  {path:"spBooking", component: SpBookingComponent},
+  {path:"spRequests", component:SpRequestComponent},
+  {path:"spVehicleRequest", component:SpVehicleRequestComponent}
 ];
 
 

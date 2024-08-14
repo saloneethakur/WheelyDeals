@@ -25,8 +25,8 @@
     <ul *ngIf="userService.info.role === 'ROLE_SERVICEPROVIDER'" class="navbar-nav ml-auto">
       <li class="nav-item active"><a routerLink="/serviceProvider" class="nav-link">Home</a></li>
       <li class="nav-item"><a routerLink="/vehicle" class="nav-link">Vehicle</a></li>
-      <li class="nav-item"><a href="pricing.html" class="nav-link">Request</a></li>
-      <li class="nav-item"><a href="car.html" class="nav-link">Booking</a></li>
+      <li class="nav-item"><a routerLink="/spRequests" class="nav-link">Request</a></li>
+      <li class="nav-item"><a routerLink="/spBooking" class="nav-link">Booking</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
