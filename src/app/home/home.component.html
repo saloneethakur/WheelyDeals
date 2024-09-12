@@ -1,152 +1,161 @@
 <div class="hero-wrap" style="background-image: url('assets/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
 
-<div class="overlay"></div>
-    <div class="container">
-      <div class="row no-gutters slider-text justify-content-start align-items-center">
-        <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
-            <div class="text">
-              <h1 class="mb-4">Now <span>It's easy for you</span> <span>rent a car</span></h1>
-              <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
-              <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4">
-                  <div class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-play"></span>
-                  </div>
-                  <div class="heading-title ml-5">
-                      <span>Easy steps for renting a car</span>
-                  </div>
-              </a>
-          </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text justify-content-start align-items-center">
+      <div class="col-lg-6 col-md-6 ftco-animate d-flex align-items-end">
+        <div class="text">
+          <h1 class="mb-4">Now <span>It's easy for you</span> <span>to rent a car</span></h1>
+          <a class="icon-wrap popup-vimeo d-flex align-items-center mt-4">
+            <div class="icon d-flex align-items-center justify-content-center">
+              <span class="ion-ios-play"></span>
+            </div>
+            <div class="heading-title ml-5">
+              <span>Easy steps for renting a car</span>
+            </div>
+          </a>
         </div>
-        <div class="col-lg-2 col"></div> 
-        <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
-            <form #frm='ngForm' (submit)="tripData(frm.value)" class="request-form ftco-animate">
-                <h2>Make your trip</h2>
-                      <div class="form-group">
-                          <label for="" class="label">Pick-up location</label>
-                          <input [ngModel] type="text" name="pickUpPoint" class="form-control" placeholder="City, Airport, Station, etc">
-                      </div>
-                      <div class="form-group">
-                          <label for="" class="label">Drop-off location</label>
-                          <input [ngModel] type="text" name="dropPoint" class="form-control" placeholder="City, Airport, Station, etc">
-                      </div>
-                      <div class="d-flex">
-                          <div class="form-group mr-2">
-                  <label for="" class="label">Pick-up date</label>
-                  <input [ngModel] type="date" name="tripStartDate" class="form-control" id="book_pick_date" placeholder="Date">
-                </div>
-                <div class="form-group ml-2">
-                  <label for="" class="label">Drop-off date</label>
-                  <input [ngModel] type="date" name="tripEndDate" class="form-control" id="book_off_date" placeholder="Date">
-                </div>
+      </div>
+      <div class="col-lg-2 col"></div>
+      <div class="col-lg-4 col-md-6 mt-0 mt-md-5 d-flex">
+        <form #frm='ngForm' (submit)="tripData(frm.value)" class="request-form ftco-animate">
+          <h2>Make your trip</h2>
+          <div class="form-group">
+            <label for="" class="label">Pick-up location</label>
+            <input type="text" [(ngModel)]="pickupValue" (ngModelChange)="onPickupChange($event)" class="form-control" name="source" placeholder="Search for a city...">
+            <ul *ngIf="source.length">
+              <li *ngFor="let city of source" (click)="selectPickup(city)">{{city}}</li>
+            </ul>
+          </div>
+          <div class="form-group">
+            <label for="" class="label">Drop-off location</label>
+            <input type="text" [(ngModel)]="dropoffValue" (ngModelChange)="onDropOffChange($event)" class="form-control" name="destination" placeholder="Search for a city...">
+            <ul *ngIf="destination.length">
+              <li *ngFor="let city of destination" (click)="selectDrop(city)">{{city}}</li>
+            </ul>
+          </div>
+          <div class="d-flex">
+            <div class="form-group mr-2">
+              <label for="" class="label">Pick-up date</label>
+              <input [ngModel] type="date" name="tripStartDate" class="form-control" id="book_pick_date"
+                placeholder="Date">
             </div>
-            <div class="form-group">
-              <label for="" class="label">Description (optional)</label>
-              <input [ngModel] type="text" name="description" class="form-control" id="time_pick" placeholder="Description">
+            <div class="form-group ml-2">
+              <label for="" class="label">Drop-off date</label>
+              <input [ngModel] type="date" name="tripEndDate" class="form-control" id="book_off_date"
+                placeholder="Date">
             </div>
-              <div class="form-group">
-                <input type="submit" value="Search Vehicle" class="btn btn-primary py-3 px-4">
+          </div>
+          <div class="form-group">
+            <label for="" class="label">Description (optional)</label>
+            <input [ngModel] type="text" name="description" class="form-control" id="time_pick"
+              placeholder="Description">
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Search Vehicle" class="btn btn-primary py-3 px-4">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section ftco-no-pb ftco-no-pt">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-wrap-1 ftco-animate mb-5">
+          <form action="#" class="search-property-1">
+            <div class="row">
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Select Model</label>
+                  <div class="form-field">
+                    <div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                      </select>
+                    </div>
+                  </div>
+                </div>
               </div>
-                  </form>
+              <div class="col-lg align-items-end">
+                <div class="form-group">
+                  <label for="#">Select Fuel Type</label>
+                  <div class="form-field">
+                    <div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                        <option value="">Select Brand</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg align-self-end">
+                <div class="form-group">
+                  <div class="form-field">
+                    <input type="submit" value="Search" class="form-control btn btn-primary">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <section class="ftco-section ftco-no-pb ftco-no-pt">
-      <div class="container">
-          <div class="row">
-             <div class="col-md-12">
-                <div class="search-wrap-1 ftco-animate mb-5">
-                   <form action="#" class="search-property-1">
-                      <div class="row">
-                          <div class="col-lg align-items-end">
-                              <div class="form-group">
-                                  <label for="#">Select Model</label>
-                                    <div class="form-field">
-                                      <div class="select-wrap">
-                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                          <select name="" id="" class="form-control">
-                                          </select>
-                                      </div>
-                                    </div>
-                              </div>
-                          </div>
-                          <div class="col-lg align-items-end">
-                              <div class="form-group">
-                                  <label for="#">Select Fuel Type</label>
-                                  <div class="form-field">
-                                    <div class="select-wrap">
-                                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="" id="" class="form-control">
-                                <option value="">Select Brand</option></select>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                         <div class="col-lg align-self-end">
-                              <div class="form-group">
-                                  <div class="form-field">
-                              <input type="submit" value="Search" class="form-control btn btn-primary">
-                                  </div>
-                              </div>
-                        </div>
-                      </div>
-                  </form>
-              </div>
-                  </div>
-          </div>
-      </div>
-  </section>
-
-  <section class="ftco-section services-section img" style="background-image: url(assets/images/bg_2.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center mb-5">
+<section class="ftco-section services-section img" style="background-image: url(assets/images/bg_2.jpg);">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center mb-5">
       <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-          <span class="subheading">Work flow</span>
+        <span class="subheading">Work flow</span>
         <h2 class="mb-3">How it works</h2>
       </div>
     </div>
-        <div class="row">
-            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+    <div class="row">
+      <div class="col-md-3 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services services-2">
           <div class="media-body py-md-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span>
+            </div>
             <h3>Pick Destination</h3>
             <p>A small river named Duden flows by their place and supplies it with you</p>
           </div>
-        </div>      
+        </div>
       </div>
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services services-2">
           <div class="media-body py-md-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-select"></span></div>
+            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-select"></span>
+            </div>
             <h3>Select Term</h3>
             <p>A small river named Duden flows by their place and supplies it with you</p>
           </div>
-        </div>      
+        </div>
       </div>
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services services-2">
           <div class="media-body py-md-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
             <h3>Choose A Car</h3>
             <p>A small river named Duden flows by their place and supplies it with you</p>
           </div>
-        </div>      
+        </div>
       </div>
       <div class="col-md-3 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services services-2">
           <div class="media-body py-md-4 text-center">
-              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-review"></span></div>
+            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-review"></span>
+            </div>
             <h3>Enjoy The Ride</h3>
             <p>A small river named Duden flows by their place and supplies it with you</p>
           </div>
-        </div>      
-      </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
-
-
-

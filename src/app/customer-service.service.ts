@@ -11,7 +11,6 @@ export class CustomerService {
 
   public cusOb:any[]=[];
 
-
   constructor(public userService:UserServiceService,public http:HttpClient) { }
 
   public getHeaders(): HttpHeaders {
@@ -24,5 +23,10 @@ export class CustomerService {
   {
     const authorize = this.getHeaders();
     return this.http.get("http://localhost:8080/admin/viewAllCustomer",{ headers: authorize})
+  }
+
+  public getCities():any
+  {
+    return this.http.get("http://api.geonames.org/searchJSON?formatted=true&country=IN&featureClass=P&maxRows=1000&username=wheelydeals")
   }
 }

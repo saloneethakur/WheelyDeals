@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AddVehicleMasterComponent } from './admin/add-vehicle-master/add-vehicle-master.component';
@@ -41,6 +41,7 @@ import { EditVehiclesComponent } from './edit-vehicles/edit-vehicles.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
